@@ -1,0 +1,22 @@
+{
+    "Tournoi_A": {
+        "nom": "Tournoi_A",
+        "date_debut": "2024-05-15",
+        "date_fin": "2024-05-20",
+        "nb_max_joueurs": 8,
+        "nombre_joueurs_inscrits": 0,
+        "nb_rondes": 4,
+        "type_tournoi": "Standard",
+        "rondes": []
+    },
+    "Tournoi test": {
+        "nom": "Tournoi test",
+        "date_debut": "2024-06-01",
+        "date_fin": "2024-06-10",
+        "nb_max_joueurs": 16,
+        "nombre_joueurs_inscrits": 0,
+        "nb_rondes": 4,
+        "type_tournoi": "round-robin",
+        "rondes": []
+    }
+}

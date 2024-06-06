@@ -1,0 +1,87 @@
+[
+    {
+        "index": 1,
+        "nom": "Tournoi d'Echecs",
+        "date_debut": "2024-03-25",
+        "date_fin": "2024-03-28",
+        "joueurs": [
+            12,
+            1,
+            3,
+            7,
+            2,
+            11,
+            10,
+            5,
+            4,
+            13
+        ],
+        "nombre_inscrits": 10
+    },
+    {
+        "index": 2,
+        "nom": "Tournoi de Noel",
+        "date_debut": "2024-12-21",
+        "date_fin": "2024-12-29",
+        "joueurs": [],
+        "nombre_inscrits": 0
+    },
+    {
+        "index": 3,
+        "nom": "Ete",
+        "date_debut": "2024-08-26",
+        "date_fin": "2024-08-30",
+        "joueurs": [],
+        "nombre_inscrits": 0
+    },
+    {
+        "index": 4,
+        "nom": "celen",
+        "date_debut": "2024-09-04",
+        "date_fin": "2024-09-14",
+        "joueurs": [],
+        "nombre_inscrits": 0
+    },
+    {
+        "index": 5,
+        "nom": "Gerveres",
+        "date_debut": "2025-01-12",
+        "date_fin": "2025-01-24",
+        "joueurs": [],
+        "nombre_inscrits": 0
+    },
+    {
+        "index": 6,
+        "nom": "Volte face",
+        "date_debut": "2025-01-26",
+        "date_fin": "2025-01-30",
+        "joueurs": [
+            14,
+            1,
+            2,
+            8,
+            5,
+            11,
+            9,
+            12
+        ],
+        "nombre_inscrits": 8
+    },
+    {
+        "index": 7,
+        "nom": "popov",
+        "date_debut": "2024-09-10",
+        "date_fin": "2024-09-24",
+        "joueurs": [
+            1,
+            3,
+            13,
+            5,
+            11,
+            7,
+            4,
+            8
+        ],
+        "nombre_inscrits": 8
+    }
+]
