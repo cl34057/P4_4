@@ -1,101 +1,89 @@
+from models.tournoi_model import TournoiManager
 from views.tournoi_vue import TournoiVue
+from controllers.joueur_controller import JoueurController
 def gestion_tournoi():
-    tournoi_vue = TournoiVue()
-    
+    tournoi_manager = TournoiManager()  # Initialisation du gestionnaire de tournois
+    tournoi_vue = TournoiVue(tournoi_manager)  # Initialisation de la vue tournoi avec le gestionnaire de tournois
+    joueur_controller = JoueurController()
     while True:
-        tournoi_vue.afficher_menu()
-        choix = input("Entrez votre choix : ")
-        if choix == "1":
-            nom, date_debut, date_fin, nb_max_joueurs, nb_rondes, type_tournoi = tournoi_vue.saisir_tournoi()
-            if tournoi_vue.tournoi_controller.tournoi_manager.ajouter_tournoi(nom, date_debut, date_fin, nb_max_joueurs, nb_rondes, type_tournoi):
-                print("Tournoi ajouté avec succès.")
-            else:
-                print("Erreur lors de l'ajout du tournoi.")
-        elif choix == "2":
-             while True:
-                print("===== Menu Modifier tournoi =====")
-                print("a. Modification d'un tournoi")
-                print("b. Ajouter un joueur au tournoi")
-                print("c. Supprimer un joueur du tournoi")
-                print("d. Retour au menu principal")
-                sous_choix = input("Entrez votre choix : ")
-                
-                if sous_choix == "a":
-                    tournoi_vue.modifier_tournoi()
-                elif sous_choix == "b":
-                    index_tournoi = tournoi_vue.saisir_index_tournoi()
-                    tournoi_vue.saisir_joueurs_participants(index_tournoi)
-                    print("Joueur ajouté au tournoi avec succès.")
-                elif sous_choix == "c":
-                    index_tournoi = tournoi_vue.saisir_index_tournoi()
-                    tournoi_vue.supprimer_joueur_tournoi(index_tournoi)
-                    print("Joueur supprimé du tournoi avec succès.")
-                elif sous_choix == "d":
-                    break
-                else:
-                    print("Choix invalide. Veuillez réessayer.")
-        elif choix == "3":
-            index = tournoi_vue.saisir_index_tournoi()
-            tournoi_vue.tournoi_controller.tournoi_manager.supprimer_tournoi(index - 1)
-            print("Tournoi supprimé avec succès.")
-        elif choix == "4":
-            tournoi_vue.afficher_liste_tournois()
-   
-        elif choix == "5":
-            print("1. Afficher les détails d'un tournoi")
-            print("2. Créer une ronde")
-            print("3. Afficher les résultats")
-            print("4. Afficher le classement")
-            choix_sous_menu = input("Sélectionnez une option : ")
-            
-            if choix_sous_menu  == "1":
-                # Option a- détails d'un tournoi
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    print("Détails du tournoi :")
-                    # Afficher les détails du tournoi ici
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "2":
-                # Option b- créer une ronde
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    tournoi.creer_ronde()
-                    print("Ronde créée avec succès.")
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "3":
-                # Option 2- afficher les résultats
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    for ronde in tournoi.rondes:
-                        ronde.obtenir_resultats_ronde()
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "4":
-                # Option 3- afficher le classement
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    classement_final = tournoi.classement()
-                    print("Classement final :")
-                    for index, points in classement_final.items():
-                        joueur = next(j for j in tournoi.joueurs if j.index == index)
-                        print(f"{joueur.nom} {joueur.prenom}: {points} points")
-                else:
-                    print("Tournoi non trouvé.")
-            else:
-                print("Option invalide.")
-
-
+        print("\n===== Menu Tournoi =====")
+        print("1. Créer un nouveau tournoi")
+        print("2. Modifier un tournoi")
+        print("3. Supprimer un tournoi")
+        print("4. Afficher la liste des tournois")
+        print("5. Afficher les détails d'un tournoi")
+        print("6. Ajouter des joueurs à un tournoi")
+        print("7. Supprimer des joueurs d'un tournoi")
+        print("8. Gérer les rondes")
+        print("9. Afficher le classement final")
+        print("10. Retour au menu principal")
         
-        elif choix == "6":
+        choix = input("Entrez votre choix : ")
+        
+        if choix == "1":
+            # Créer un nouveau tournoi
+            nom = input("Nom du tournoi : ")
+            date_debut = input("Date de début (format YYYY-MM-DD) : ")
+            date_fin = input("Date de fin (format YYYY-MM-DD) : ")
+            nb_max_joueurs = int(input("Nombre maximum de joueurs : "))
+            nb_rondes = int(input("Nombre de rondes : "))
+            type_tournoi = input("Type de tournoi : ")
+            
+            nouveau_tournoi = tournoi_manager.ajouter_tournoi(nom, date_debut, date_fin, nb_max_joueurs, nb_rondes, type_tournoi)
+            if nouveau_tournoi:
+                print(f"Le tournoi '{nom}' a été créé avec succès!")
+        
+        elif choix == "2":
+            # Modifier un tournoi
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.modifier_tournoi(index_tournoi)
+        
+        elif choix == "3":
+            # Supprimer un tournoi
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_manager.supprimer_tournoi(index_tournoi)
+        
+        elif choix == "4":
+            # Afficher la liste des tournois
+            tournoi_vue.afficher_liste_tournois()
+        
+        elif choix == "5":
+            # Afficher les détails d'un tournoi
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.afficher_details_tournoi(index_tournoi)
+        
+        elif choix == '6':
+            # Exemple d'appel pour ajouter des joueurs à un tournoi
+            index_tournoi = tournoi_vue.saisir_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.saisir_joueurs_participants(index_tournoi - 1)
+        elif choix == "7":
+            # Supprimer des joueurs d'un tournoi
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.supprimer_joueurs_participants(index_tournoi)
+        
+        elif choix == "8":
+            # Gérer les rondes
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.gerer_rondes(index_tournoi)
+        
+        elif choix == "9":
+            # Afficher le classement final
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            if index_tournoi is not None:
+                tournoi_vue.afficher_classement_final(index_tournoi)
+        
+        elif choix == "10":
+            # Retour au menu principal
             break
+        
         else:
-            print("Choix invalide. Veuillez réessayer.")
+            print("Choix invalide. Veuillez entrer un choix valide.")
 
 if __name__ == "__main__":
     gestion_tournoi()

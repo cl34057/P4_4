@@ -1,8 +1,9 @@
+# menu_principal.py
+
 from menu_tournoi import gestion_tournoi
 import sys
 
 def main_menu():
-   
     while True:
         print("===== Gestion des Joueurs et Tournois =====")
         print("1. Gestion des Joueurs")
@@ -12,7 +13,7 @@ def main_menu():
         choix = input("Entrez votre choix : ")
 
         if choix == "1":
-            from menu_joueur import gestion_joueur # Importation locale pour éviter la circularité
+            from menu_joueur import gestion_joueur  # Importation locale pour éviter la circularité
             gestion_joueur()
         elif choix == "2":
             gestion_tournoi()
@@ -22,6 +23,6 @@ def main_menu():
         else:
             print("Choix invalide. Veuillez réessayer.")
 
+
 if __name__ == "__main__":
     main_menu()
-

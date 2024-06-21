@@ -1,0 +1,11 @@
+{
+    "index": 2,
+    "nom": "marilou",
+    "date_debut": "2025-02-02",
+    "date_fin": "2025-02-10",
+    "nb_max_joueurs": 52,
+    "nb_rondes": 6,
+    "type_tournoi": "lent",
+    "joueurs": [],
+    "rondes": []
+}

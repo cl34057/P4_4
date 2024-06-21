@@ -44,20 +44,11 @@ class JoueurManager:
     MAX_JOUEURS = 100
     FICHIER_JSON = "data/joueur.json"
 
-    def __init__(self):
+    def __init__(self, directory_path='data/joueurs'):
+        self.directory_path = directory_path
         self.joueurs = []
         self.charger_joueurs()
-
-    def charger_joueurs(self):
-        if os.path.exists(self.FICHIER_JSON):
-            with open(self.FICHIER_JSON, "r") as file:
-                data = json.load(file)
-                self.joueurs = [self.convertir_dict_vers_joueur(joueur) for joueur in data]
-
-    def sauvegarder_joueurs(self):
-        with open(self.FICHIER_JSON, "w") as file:
-            data = [self.convertir_joueur_vers_dict(joueur) for joueur in self.joueurs]
-            json.dump(data, file, indent=4)
+    
 
     def ajouter_joueur(self, nom, prenom, date_naissance, elo):
        
@@ -99,7 +90,29 @@ class JoueurManager:
         for joueur in self.joueurs[index - 1:]:
             joueur.index -= 1
         self.sauvegarder_joueurs()
-
+    #def charger_joueurs(self):
+    #    if os.path.exists(self.FICHIER_JSON):
+    #        with open(self.FICHIER_JSON, "r") as file:
+    #            data = json.load(file)
+    #            self.joueurs = [self.convertir_dict_vers_joueur(joueur) for joueur in data]
+    def charger_joueurs(self):
+        file_path = f"{self.directory_path}/joueurs.json"
+        try:
+            with open(file_path, "r", encoding="utf-8") as fichier:
+                data = json.load(fichier)
+                self.joueurs = data  # Assume que les données sont une liste de joueurs JSON
+        except FileNotFoundError:
+            print(f"Le fichier {file_path} n'existe pas.")
+    
+    def get_joueur_by_index(self, joueur_index):
+        joueurs = self.charger_joueurs()
+        if 0 <= joueur_index < len(joueurs):
+            return joueurs[joueur_index]
+        return None
+    def sauvegarder_joueurs(self):
+        with open(self.FICHIER_JSON, "w") as file:
+            data = [self.convertir_joueur_vers_dict(joueur) for joueur in self.joueurs]
+            json.dump(data, file, indent=4)
     def trouver_joueur_par_details(self, nom: str, prenom: str, date_naissance: datetime.date) -> Optional[Joueur]:
         # Parcourir tous les joueurs pour trouver un joueur avec les mêmes détails
         for joueur in self.joueurs:

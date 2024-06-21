@@ -1,0 +1,35 @@
+[
+    {
+        "index": 1,
+        "nom": "mera",
+        "date_debut": "2024-01-12",
+        "date_fin": "2024-01-18",
+        "nb_max_joueurs": 50,
+        "nb_rondes": 8,
+        "type_tournoi": "blitz",
+        "joueurs": [],
+        "rondes": []
+    },
+    {
+        "index": 2,
+        "nom": "mamaia",
+        "date_debut": "2026-01-02",
+        "date_fin": "2026-01-20",
+        "nb_max_joueurs": 96,
+        "nb_rondes": 5,
+        "type_tournoi": "lent",
+        "joueurs": [],
+        "rondes": []
+    },
+    {
+        "index": 3,
+        "nom": "heriva",
+        "date_debut": "2026-02-12",
+        "date_fin": "2026-02-14",
+        "nb_max_joueurs": 30,
+        "nb_rondes": 4,
+        "type_tournoi": "rapide",
+        "joueurs": [],
+        "rondes": []
+    }
+]
