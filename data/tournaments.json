@@ -1,22 +1,847 @@
 {
     "Tournoi_A": {
-        "nom": "Tournoi_A",
+        "index": 1,
+        "nom_tournoi": "Tournoi_A",
         "date_debut": "2024-05-15",
         "date_fin": "2024-05-20",
-        "nb_max_joueurs": 8,
-        "nombre_joueurs_inscrits": 0,
         "nb_rondes": 4,
+        "nb_inscrits": 7,
+        "nb_max_joueurs": 8,
         "type_tournoi": "Standard",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 3,
+                "nom": "remi",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 20,
+                "nom": "picard",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
         "rondes": []
     },
     "Tournoi test": {
-        "nom": "Tournoi test",
+        "index": 2,
+        "nom_tournoi": "Tournoi test",
         "date_debut": "2024-06-01",
         "date_fin": "2024-06-10",
-        "nb_max_joueurs": 16,
-        "nombre_joueurs_inscrits": 0,
         "nb_rondes": 4,
+        "nb_inscrits": 8,
+        "nb_max_joueurs": 16,
         "type_tournoi": "round-robin",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 3,
+                "nom": "remi",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 5,
+                "nom": "grabl",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "hercule5": {
+        "index": 3,
+        "nom_tournoi": "hercule5",
+        "date_debut": "2024-11-11",
+        "date_fin": "2024-11-30",
+        "nb_rondes": 4,
+        "nb_inscrits": 0,
+        "nb_max_joueurs": 82,
+        "type_tournoi": "lent",
+        "statut": "En attente",
+        "joueurs_inscrits": [],
+        "rondes": []
+    },
+    "gogo": {
+        "index": 4,
+        "nom_tournoi": "gogo",
+        "date_debut": "2024-12-12",
+        "date_fin": "2024-12-31",
+        "nb_rondes": 7,
+        "nb_inscrits": 11,
+        "nb_max_joueurs": 66,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 3,
+                "nom": "remi",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 5,
+                "nom": "grabl",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 22,
+                "nom": "jiji",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 17,
+                "nom": "joma",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 16,
+                "nom": "tii",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "jeje": {
+        "index": 5,
+        "nom_tournoi": "jeje",
+        "date_debut": "2026-01-30",
+        "date_fin": "2026-02-24",
+        "nb_rondes": 5,
+        "nb_inscrits": 8,
+        "nb_max_joueurs": 50,
+        "type_tournoi": "rapide",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 5,
+                "nom": "grabl",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 12,
+                "nom": "corbaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 14,
+                "nom": "Clement",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 22,
+                "nom": "jiji",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 21,
+                "nom": "polo",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "Sixties": {
+        "index": 6,
+        "nom_tournoi": "Sixties",
+        "date_debut": "2024-10-12",
+        "date_fin": "2024-10-24",
+        "nb_rondes": 4,
+        "nb_inscrits": 9,
+        "nb_max_joueurs": 42,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 5,
+                "nom": "grabl",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 12,
+                "nom": "corbaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 14,
+                "nom": "Clement",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 13,
+                "nom": "jessy",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "jessyRa": {
+        "index": 7,
+        "nom_tournoi": "jessyRa",
+        "date_debut": "2024-11-10",
+        "date_fin": "2024-11-22",
+        "nb_rondes": 4,
+        "nb_inscrits": 8,
+        "nb_max_joueurs": 26,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 12,
+                "nom": "corbaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 16,
+                "nom": "tii",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "Sisi": {
+        "index": 8,
+        "nom_tournoi": "Sisi",
+        "date_debut": "2027-02-10",
+        "date_fin": "2027-02-16",
+        "nb_rondes": 4,
+        "nb_inscrits": 9,
+        "nb_max_joueurs": 22,
+        "type_tournoi": "lent",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 9,
+                "nom": "justin",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 14,
+                "nom": "Clement",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 15,
+                "nom": "jamesy",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 16,
+                "nom": "tii",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "radicano": {
+        "index": 9,
+        "nom_tournoi": "radicano",
+        "date_debut": "2024-12-01",
+        "date_fin": "2024-12-03",
+        "nb_rondes": 6,
+        "nb_inscrits": 9,
+        "nb_max_joueurs": 50,
+        "type_tournoi": "suisse",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 3,
+                "nom": "remi",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 12,
+                "nom": "corbaro",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 11,
+                "nom": "sacristo",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 20,
+                "nom": "picard",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            },
+            {
+                "index": 15,
+                "nom": "jamesy",
+                "prenom": "",
+                "date_naissance": "2000-01-01",
+                "elo": 1500
+            }
+        ],
+        "rondes": []
+    },
+    "Merguez": {
+        "index": 10,
+        "nom_tournoi": "Merguez",
+        "date_debut": "2024-09-09",
+        "date_fin": "2024-09-18",
+        "nb_rondes": 7,
+        "nb_inscrits": 8,
+        "nb_max_joueurs": 50,
+        "type_tournoi": "rapide",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "1985-10-28",
+                "elo": 2800
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "1987-12-12",
+                "elo": "1650"
+            },
+            {
+                "index": 3,
+                "nom": "remi",
+                "prenom": "",
+                "date_naissance": "1964-08-07",
+                "elo": 2900
+            },
+            {
+                "index": 4,
+                "nom": "raza",
+                "prenom": "",
+                "date_naissance": "1956-09-07",
+                "elo": 1300
+            },
+            {
+                "index": 5,
+                "nom": "grabl",
+                "prenom": "",
+                "date_naissance": "1987-08-24",
+                "elo": 1000
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "1987-06-07",
+                "elo": 1999
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2009-12-25",
+                "elo": 2800
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2005-05-07",
+                "elo": 1989
+            }
+        ],
+        "rondes": []
+    },
+    "babacool": {
+        "index": 11,
+        "nom_tournoi": "babacool",
+        "date_debut": "2024-06-06",
+        "date_fin": "2024-07-02",
+        "nb_rondes": 8,
+        "nb_inscrits": 9,
+        "nb_max_joueurs": 62,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "1985-10-28",
+                "elo": 2800
+            },
+            {
+                "index": 6,
+                "nom": "zerty",
+                "prenom": "",
+                "date_naissance": "1987-06-07",
+                "elo": 1999
+            },
+            {
+                "index": 22,
+                "nom": "jiji",
+                "prenom": "",
+                "date_naissance": "2000-05-24",
+                "elo": 1600
+            },
+            {
+                "index": 15,
+                "nom": "jamesy",
+                "prenom": "",
+                "date_naissance": "1998-06-27",
+                "elo": 1200
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2005-05-07",
+                "elo": 1989
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2009-12-25",
+                "elo": 2800
+            },
+            {
+                "index": 9,
+                "nom": "justin",
+                "prenom": "",
+                "date_naissance": "2000-12-12",
+                "elo": 3000
+            },
+            {
+                "index": 12,
+                "nom": "corbaro",
+                "prenom": "",
+                "date_naissance": "1996-06-07",
+                "elo": 1500
+            },
+            {
+                "index": 18,
+                "nom": "urli",
+                "prenom": "",
+                "date_naissance": "1997-04-29",
+                "elo": 2200
+            }
+        ],
+        "rondes": []
+    },
+    "Fourgan": {
+        "index": 12,
+        "nom_tournoi": "Fourgan",
+        "date_debut": "2024-12-12",
+        "date_fin": "2024-12-18",
+        "nb_rondes": 5,
+        "nb_inscrits": 9,
+        "nb_max_joueurs": 24,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [
+            {
+                "index": 1,
+                "nom": "Smith",
+                "prenom": "",
+                "date_naissance": "1985-10-28",
+                "elo": 2800
+            },
+            {
+                "index": 21,
+                "nom": "polo",
+                "prenom": "",
+                "date_naissance": "2015-06-07",
+                "elo": 1500
+            },
+            {
+                "index": 22,
+                "nom": "jiji",
+                "prenom": "",
+                "date_naissance": "2000-05-24",
+                "elo": 1600
+            },
+            {
+                "index": 15,
+                "nom": "jamesy",
+                "prenom": "",
+                "date_naissance": "1998-06-27",
+                "elo": 1200
+            },
+            {
+                "index": 7,
+                "nom": "maximilien",
+                "prenom": "",
+                "date_naissance": "2009-12-25",
+                "elo": 2800
+            },
+            {
+                "index": 8,
+                "nom": "yen",
+                "prenom": "",
+                "date_naissance": "2005-05-07",
+                "elo": 1989
+            },
+            {
+                "index": 2,
+                "nom": "riri",
+                "prenom": "",
+                "date_naissance": "1987-12-12",
+                "elo": "1650"
+            },
+            {
+                "index": 10,
+                "nom": "ramaro",
+                "prenom": "",
+                "date_naissance": "1996-03-05",
+                "elo": 1750
+            },
+            {
+                "index": 11,
+                "nom": "sacristo",
+                "prenom": "",
+                "date_naissance": "1998-05-26",
+                "elo": 2900
+            }
+        ],
+        "rondes": []
+    },
+    "epilone": {
+        "index": 13,
+        "nom_tournoi": "epilone",
+        "date_debut": "2027-01-02",
+        "date_fin": "2027-01-30",
+        "nb_rondes": 4,
+        "nb_inscrits": 0,
+        "nb_max_joueurs": 58,
+        "type_tournoi": "blitz",
+        "statut": "En attente",
+        "joueurs_inscrits": [],
         "rondes": []
     }
 }

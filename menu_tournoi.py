@@ -1,16 +1,17 @@
 from views.tournoi_vue import TournoiVue
-def gestion_tournoi():
-    tournoi_vue = TournoiVue()
-    
+
+def gestion_tournoi(tournoi_vue: TournoiVue):
     while True:
         tournoi_vue.afficher_menu()
         choix = input("Entrez votre choix : ")
+        # 1-Création Nouveau Tournoi
         if choix == "1":
             nom, date_debut, date_fin, nb_max_joueurs, nb_rondes, type_tournoi = tournoi_vue.saisir_tournoi()
             if tournoi_vue.tournoi_controller.tournoi_manager.ajouter_tournoi(nom, date_debut, date_fin, nb_max_joueurs, nb_rondes, type_tournoi):
                 print("Tournoi ajouté avec succès.")
             else:
                 print("Erreur lors de l'ajout du tournoi.")
+        # 2- Modifier tournoi
         elif choix == "2":
              while True:
                 print("===== Menu Modifier tournoi =====")
@@ -34,68 +35,60 @@ def gestion_tournoi():
                     break
                 else:
                     print("Choix invalide. Veuillez réessayer.")
+
+        # 3- Supprimer tournoi
         elif choix == "3":
-            index = tournoi_vue.saisir_index_tournoi()
-            tournoi_vue.tournoi_controller.tournoi_manager.supprimer_tournoi(index - 1)
-            print("Tournoi supprimé avec succès.")
+                index_tournoi = tournoi_vue.saisir_index_tournoi()
+                if tournoi_vue.tournoi_controller.tournoi_manager.supprimer_tournoi(index_tournoi):
+                        print("Tournoi supprimé avec succès.")
+                else:
+                        print("Erreur lors de la suppression du tournoi.")
+
+        # 4- Afficher liste des tournois
         elif choix == "4":
             tournoi_vue.afficher_liste_tournois()
-   
+        # 5- Afficher details d'un tournoi
         elif choix == "5":
-            print("1. Afficher les détails d'un tournoi")
-            print("2. Créer une ronde")
-            print("3. Afficher les résultats")
-            print("4. Afficher le classement")
-            choix_sous_menu = input("Sélectionnez une option : ")
-            
-            if choix_sous_menu  == "1":
-                # Option a- détails d'un tournoi
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    print("Détails du tournoi :")
-                    # Afficher les détails du tournoi ici
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "2":
-                # Option b- créer une ronde
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    tournoi.creer_ronde()
-                    print("Ronde créée avec succès.")
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "3":
-                # Option 2- afficher les résultats
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    for ronde in tournoi.rondes:
-                        ronde.obtenir_resultats_ronde()
-                else:
-                    print("Tournoi non trouvé.")
-            elif choix_sous_menu == "4":
-                # Option 3- afficher le classement
-                index = tournoi_vue.saisir_index_tournoi()
-                tournoi = tournoi_vue.afficher_details_tournoi(index)
-                if tournoi:
-                    classement_final = tournoi.classement()
-                    print("Classement final :")
-                    for index, points in classement_final.items():
-                        joueur = next(j for j in tournoi.joueurs if j.index == index)
-                        print(f"{joueur.nom} {joueur.prenom}: {points} points")
-                else:
-                    print("Tournoi non trouvé.")
-            else:
-                print("Option invalide.")
-
-
-        
+            index_tournoi = tournoi_vue.saisir_index_tournoi()
+            tournoi = tournoi_vue.afficher_details_tournoi(index_tournoi)
+            if tournoi:
+                while True:
+                    print("1. Afficher les détails d'un tournoi")
+                    print("2. Créer une ronde")
+                    print("3. Jouer une ronde")
+                    print("4. Saisir les résultats d'une ronde")
+                    print("5. Afficher le classement")
+                    print("6. Retour")
+                    option = input("Sélectionnez une option : ")
+                    if option == "1":
+                        tournoi_vue.afficher_details_tournoi(index_tournoi)
+                    elif option == "2":
+                        tournoi.creer_ronde()
+                        print("Ronde créée avec succès.")
+                    elif option == "3":
+                        tournoi.jouer_ronde()
+                    elif option == "4":
+                        numero_ronde = int(input("Entrez le numéro de la ronde : "))
+                        tournoi.saisir_resultats_ronde(numero_ronde)
+                    elif option == "5":
+                        print("Classement :")
+                        for ligne in tournoi.classement():
+                            print(f"{ligne[0].nom} {ligne[0].prenom} : {ligne[1]} points")
+                    elif option == "6":
+                        break
+                    else:
+                        print("Option invalide.")
+        # 6- Quitter
         elif choix == "6":
             break
         else:
             print("Choix invalide. Veuillez réessayer.")
 
 if __name__ == "__main__":
-    gestion_tournoi()
+    from controllers.tournoi_controller import TournoiController
+    from models.joueur_model import JoueurManager
+    
+    tournoi_controller = TournoiController()
+    joueur_manager = JoueurManager()
+    tournoi_vue = TournoiVue(tournoi_controller, joueur_manager)
+    gestion_tournoi(tournoi_vue)

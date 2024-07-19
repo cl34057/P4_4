@@ -5,13 +5,11 @@ from config import MAX_JOUEURS
 
 
 
-
 class JoueurVue:
-    #changez l'import de gestion_joueur pour une injection de dépendance (au lieu de from gestion_joueur import gestion_joueur) ):
     def __init__(self, gestion_joueur):
-        self.gestion_joueur = gestion_joueur  # Attribuez la fonction à un attribut de l'objet
+        self.gestion_joueur = gestion_joueur
         self.joueur_controller = JoueurController()
-        
+
     def afficher_menu(self):
         print("===== Menu Joueur =====")
         print("1. Ajouter un joueur")
@@ -21,95 +19,48 @@ class JoueurVue:
         print("5. Afficher les détails d'un joueur")
         print("6. Retour")
 
-
-
-
-
     def saisir_joueur(self):
         while True:
-            if len(self.joueur_controller.joueur_manager.joueurs) >= MAX_JOUEURS:
+            if len(self.joueur_controller.joueur_manager.joueurs) >= JoueurManager.MAX_JOUEURS:
                 print("Nombre maximal de joueurs atteint.")
                 return None
-            
-            while True:
-                nom = input("Nom du joueur : ")
-                if not nom.isalpha():
-                    print("Le nom doit contenir uniquement des lettres.")
-                    continue
-                break
-            
-            while True:
-                prenom = input("Prénom du joueur : ")
-                if not prenom.isalpha():
-                    print("Le prénom doit contenir uniquement des lettres.")
-                    continue
-                break
-            
-            while True:
-                date_naissance_str = input("Date de naissance du joueur (format YYYY-MM-DD) : ")
-                try:
-                    date_naissance = datetime.datetime.strptime(date_naissance_str, '%Y-%m-%d').date()
-                    break
-                except ValueError:
-                    print("Format de date invalide. Veuillez entrer la date au format YYYY-MM-DD.")
-                    continue
-            
-            while True:
-                elo = input("Elo du joueur (entre 1000 et 3500) : ")
-                if not elo.isdigit():
-                    print("Le score Elo doit être un entier.")
-                    continue
-                elif not 1000 <= int(elo) <= 3500:
-                    print("Le score Elo doit être compris entre 1000 et 3500.")
-                    continue
-                else:
-                    break
-                
-            # Vérifier si le joueur existe déjà
+
+            nom = self.saisir_champ_alpha("Nom du joueur : ")
+            prenom = self.saisir_champ_alpha("Prénom du joueur : ")
+            date_naissance = self.saisir_date_naissance()
+            elo = self.saisir_elo()
+
             joueur_existant = self.joueur_controller.joueur_manager.trouver_joueur_par_details(nom, prenom, date_naissance)
             if joueur_existant:
                 choix = input("CE JOUEUR EXISTE DÉJA. Voulez-vous ajouter un autre joueur ? (o/n) : ")
                 if choix.lower() == 'o':
-                    continue  # Revenir à la saisie du nouveau joueur
+                    continue
                 elif choix.lower() == 'n':
-                    # Revenir au menu joueur
                     print("Retour au menu joueur.")
-                    self.gestion_joueur()  # Appeler la fonction gestion_joueur pour revenir au menu joueur
-                    return  # Appeler la fonction gestion_joueur pour revenir au menu joueur
+                    self.gestion_joueur()
+                    return
                 else:
                     print("Choix invalide. Veuillez répondre par 'o' ou 'n'.")
                     continue
-            elif choix.lower() == '6':
-                # Si l'utilisateur choisit l'option 6, retournez au menu principal en appelant la fonction main_menu
-                print("Retour au menu principal.")
-                main_menu()
-                return
             else:
-                # Ajouter le joueur s'il n'existe pas déjà
                 index = len(self.joueur_controller.joueur_manager.joueurs) + 1
                 joueur = Joueur(index, nom, prenom, date_naissance, int(elo))
                 self.joueur_controller.ajouter_joueur(joueur.nom, joueur.prenom, joueur.date_naissance, joueur.elo)
                 
-                # Demander si l'utilisateur veut ajouter un autre joueur
                 choix = input("Voulez-vous ajouter un autre joueur ? (o/n) : ")
                 if choix.lower() == 'o':
-                    continue  # Revenir à la saisie du nouveau joueur
+                    continue
                 elif choix.lower() == 'n':
-                    # Revenir au menu joueur
                     print("Retour au menu joueur.")
-                    self.gestion_joueur()  # Appeler la fonction gestion_joueur pour revenir au menu joueur
-                    return 
+                    self.gestion_joueur()
+                    return
                 else:
                     print("Choix invalide. Veuillez répondre par 'o' ou 'n'.")
                     continue
 
-
-
     def modifier_joueur(self):
-        
         index = self.saisir_index_joueur()
         joueur = self.joueur_controller.joueur_manager.joueurs[index - 1]
-
         print("===== Modifier le joueur =====")
         print(f"Nom : {joueur.nom}")
         print(f"Prénom : {joueur.prenom}")
@@ -117,20 +68,19 @@ class JoueurVue:
         print(f"Elo : {joueur.elo}")
 
         choix_modification = input("Voulez-vous modifier ce joueur ? (o/n) : ")
-
         if choix_modification.lower() == 'o':
             nom = input(f"Nouveau nom ({joueur.nom}) : ") or joueur.nom
             prenom = input(f"Nouveau prénom ({joueur.prenom}) : ") or joueur.prenom
             date_naissance = input(f"Nouvelle date de naissance ({joueur.date_naissance}) : ") or joueur.date_naissance
             elo = input(f"Nouvel elo ({joueur.elo}) : ") or joueur.elo
-
             self.joueur_controller.modifier_joueur(index, nom, prenom, date_naissance, elo)
             print("Joueur modifié avec succès.")
         else:
             print("Aucune modification effectuée.")
+
     def afficher_joueur(self, joueur):
         print("===== Affichage des détails d'un joueur =====")
-        print("Nom :", joueur.nom)  # Afficher le nom
+        print("Nom :", joueur.nom)
         print("Prénom :", joueur.prenom)
         print("Date de naissance :", joueur.date_naissance)
         print("Elo :", joueur.elo)
@@ -154,44 +104,42 @@ class JoueurVue:
                 print("Veuillez entrer un nombre entier.")
 
     def saisir_joueur_details(self):
-        while True:
-            nom = input("Nouveau nom du joueur : ")
-            if not nom.isalpha():
-                print("Le nom doit contenir uniquement des lettres.")
-                continue
-            
-            prenom = input("Nouveau prénom du joueur : ")
-            if not prenom.isalpha():
-                print("Le prénom doit contenir uniquement des lettres.")
-                continue
-            
-            while True:
-                date_naissance = input("Nouvelle date de naissance du joueur (format YYYY-MM-DD) : ")
-                try:
-                    datetime.datetime.strptime(date_naissance, '%Y-%m-%d')
-                    break
-                except ValueError:
-                    print("Format de date invalide. Veuillez entrer la date au format YYYY-MM-DD.")
-                    continue
-            
-            while True:
-                elo = input("Nouveau Elo du joueur (entre 1000 et 3500) : ")
-                if not elo.isdigit():
-                    print("Le score Elo doit être un entier.")
-                    continue
-                elif not 1000 <= int(elo) <= 3500:
-                    print("Le score Elo doit être compris entre 1000 et 3500.")
-                    continue
-                else:
-                    break
-                
-            return nom, prenom, date_naissance, int(elo)
+        nom = self.saisir_champ_alpha("Nouveau nom du joueur : ")
+        prenom = self.saisir_champ_alpha("Nouveau prénom du joueur : ")
+        date_naissance = self.saisir_date_naissance()
+        elo = self.saisir_elo()
+        return nom, prenom, date_naissance, elo
+
     def supprimer_joueur(self):
         index = self.saisir_index_joueur()
         self.joueur_controller.supprimer_joueur(index)
         print("Joueur supprimé avec succès.")
-    
+
     def afficher_details_joueur(self):
         index = self.saisir_index_joueur()
         joueur = self.joueur_controller.joueur_manager.joueurs[index - 1]
         self.afficher_joueur(joueur)
+
+    def saisir_champ_alpha(self, message):
+        while True:
+            valeur = input(message)
+            if valeur.isalpha():
+                return valeur
+            print("Ce champ doit contenir uniquement des lettres.")
+
+    def saisir_date_naissance(self):
+        while True:
+            date_naissance_str = input("Date de naissance du joueur (format YYYY-MM-DD) : ")
+            try:
+                return datetime.datetime.strptime(date_naissance_str, '%Y-%m-%d').date()
+            except ValueError:
+                print("Format de date invalide. Veuillez entrer la date au format YYYY-MM-DD.")
+
+    def saisir_elo(self):
+        while True:
+            elo = input("Elo du joueur (entre 1000 et 3500) : ")
+            if elo.isdigit() and 1000 <= int(elo) <= 3500:
+                return int(elo)
+            print("Le score Elo doit être un entier compris entre 1000 et 3500.")
+
+

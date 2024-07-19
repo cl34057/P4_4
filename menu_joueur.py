@@ -2,7 +2,7 @@ from views.joueur_vue import JoueurVue
 
 
 def gestion_joueur():
-    from main_menu import main_menu # Importation locale pour éviter la circularité
+    from main_menu import main_menu
     joueur_vue = JoueurVue(gestion_joueur)
     while True:
         joueur_vue.afficher_menu()
